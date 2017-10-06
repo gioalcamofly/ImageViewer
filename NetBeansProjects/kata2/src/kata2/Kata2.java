@@ -9,13 +9,13 @@ public class Kata2 {
   
     public static void main(String[] args) {
         // TODO code application logic here
-        Integer [] data = {1,1,1,0,0,1,2,2,2,3};
+        String [] data = {"Rosa", "Pepe", "Juan", "Rosa", "Rosa", "Juan"};
         histogram histo = new histogram(data);
-        Map<Integer, Integer> histogr = histo.getHistogram();
+        Map<String, Integer> histogr = histo.getHistogram();
         
         
         
-        for (int key : histogr.keySet()) {
+        for (String key : histogr.keySet()) {
             System.out.println(key + " ===> " + histogr.get(key));
         }
         
