@@ -18,6 +18,7 @@ public class Kata2 {
         for (String key : histogr.keySet()) {
             System.out.println(key + " ===> " + histogr.get(key));
         }
+        
     }
     
 }
