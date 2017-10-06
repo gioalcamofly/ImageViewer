@@ -20,7 +20,6 @@ public class Kata2 {
             System.out.println(key + " ===> " + histogram.get(key));
         }
         
-        
     }
     
 }
