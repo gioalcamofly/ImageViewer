@@ -3,19 +3,19 @@ package kata2;
 import java.util.HashMap;
 import java.util.Map;
 
-public class histogram {
-    private final int data[];
+public class histogram<T> {
+    private final T data[];
 
-    public histogram(int[] data) {
-        this.data = data;
+    public histogram(T data) {
+        this.data = (T[]) data;
     }
 
-    public int[] getData() {
-        return data;
+    public T getData() {
+        return (T) data;
     }
-    public Map<Integer, Integer> getHistogram() {
-        Map<Integer, Integer> histogram = new HashMap<>();
-        for (int value: data) {
+    public Map<T, Integer> getHistogram() {
+        Map<T, Integer> histogram = new HashMap<>();
+        for (T value: data) {
             histogram.put(value, histogram.containsKey(value)?histogram.get(value) + 1: 1);
         }
         return histogram;

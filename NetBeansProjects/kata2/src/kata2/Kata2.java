@@ -9,7 +9,7 @@ public class Kata2 {
   
     public static void main(String[] args) {
         // TODO code application logic here
-        int [] data = {1,1,1,0,0,1,2,2,2,3};
+        Integer [] data = {1,1,1,0,0,1,2,2,2,3};
         histogram histo = new histogram(data);
         Map<Integer, Integer> histogr = histo.getHistogram();
         
