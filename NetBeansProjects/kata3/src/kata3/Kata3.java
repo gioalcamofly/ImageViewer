@@ -22,6 +22,7 @@ public class Kata3 {
         histogram.increment("hotmail.com");
         histogram.increment("hotmail.com");
         new HistogramDisplay(histogram).execute();
+        
     }
     
 }
