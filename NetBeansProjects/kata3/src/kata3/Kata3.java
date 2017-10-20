@@ -9,7 +9,6 @@ public class Kata3 {
         histogram.increment("ulpgc.es", 7);
         histogram.increment("ull.es", 5);
         histogram.increment("gmail.com", 12);
-        
         new HistogramDisplay(histogram).execute();
         
     }
