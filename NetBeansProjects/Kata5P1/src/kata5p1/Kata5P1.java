@@ -41,6 +41,10 @@ public class Kata5P1 {
             statement.executeUpdate(query);
         }
         
+        rs.close();
+        statement.close();
+        connection.close();
+               
     }
     
 }
