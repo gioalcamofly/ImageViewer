@@ -6,37 +6,35 @@ import java.util.logging.Logger;
 import kata6.model.Histogram;
 import kata6.model.Mail;
 import kata6.view.HistogramDisplay;
-import kata6.view.MailHistogramBuilder;
-import kata6.view.MailListReader;
+import kata6.view.HistogramBuilder;
+import kata6.view.FileMailListReader;
 
 public class Kata6 {
     
-    private String filename;
-    private List<Mail> mailList;
-    private Histogram<String> histogram;
-
+    
+    
     public static void main(String[] args) throws IOException {
-        Kata6 kata6 = new Kata6();
-        kata6.execute();
-    }
-    public void execute() throws IOException {
-        input();
-        process();
-        output();
-    }
+        String filename = "/home/giovanni/Documentos/mail.txt";
+        List<Mail> mailList = FileMailListReader.read(filename);
+        HistogramBuilder<Mail> builder = new HistogramBuilder<>(mailList);
+        Histogram<String> domains = builder.build(new Attribute<Mail, String>() {
+            @Override
+            public String get(Mail item) {
+                return item.getMail().split("@")[1];
+            }
+        });
+        
+        new HistogramDisplay(domains, "Dominios").execute();
+        
+        Histogram<Character> characters = builder.build(new Attribute<Mail, Character>() {
+            @Override
+            public Character get(Mail item) {
+                return item.getMail().charAt(0);
+            }
+        });
+        
+        new HistogramDisplay(characters, "Primer Caracter").execute();
     
-    public void input() {
-        filename = "/home/giovanni/Documentos/mail.txt";
     }
-    
-    public void process() throws IOException {
-        mailList = MailListReader.read(filename);
-        histogram = MailHistogramBuilder.build(mailList);
-    }
-    
-    public void output() {
-        HistogramDisplay histoDisplay = new HistogramDisplay(histogram);
-        histoDisplay.execute();
-    }
-    
+       
 }

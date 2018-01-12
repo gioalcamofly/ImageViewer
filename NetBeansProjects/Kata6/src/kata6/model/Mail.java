@@ -3,17 +3,19 @@ package kata6.model;
 public class Mail {
     
     private final String mail;
+    private final int id;
     
-    public Mail(String mail) {
+    public Mail(String mail, int id) {
         this.mail = mail;
+        this.id = id;
     }
     
     public String getMail() {
         return this.mail;
     }
     
-    public String getDomain() {
-        return mail.split("@")[1];
+    public int getId() {
+        return id;
     }
     
 }
